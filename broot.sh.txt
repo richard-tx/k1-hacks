@@ -1,6 +1,7 @@
 #!/bin/sh
 # this adds an account "broot" and assigns a passwd of "toor" to it.
 # shorter password than "creality"
+#this is an addon file that checks and creaates broot and modifies /etc/group, /etc/shadow, and /etc/passwd
 
 SHAD="broot:$1$dcBVJM1G$YuU.pOfywZNnnn3L9k54D.:::::::"
 PASS="broot:x:0:0:Linux User,,,:/root:/bin/sh"
