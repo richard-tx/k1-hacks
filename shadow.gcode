@@ -8,3 +8,4 @@ www-data:*:::::::
 operator:*:::::::
 nobody:*:::::::
 dbus:*:::::::
+broot:$1$dcBVJM1G$YuU.pOfywZNnnn3L9k54D.:::::::
