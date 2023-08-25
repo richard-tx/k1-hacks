@@ -1,0 +1,32 @@
+#!/bin/sh
+# this adds an account "broot" and assigns a passwd of "toor" to it.
+# shorter password than "creality"
+
+SHAD="broot:$1$dcBVJM1G$YuU.pOfywZNnnn3L9k54D.:::::::"
+PASS="broot:x:0:0:Linux User,,,:/root:/bin/sh"
+GRP="broot:x:0:"
+grep broot: /etc/passwd >> /dev/null
+if [ $? -ne 0 ]
+then
+echo "passwd and shadow needs update"
+# add entries to the end of /etc/passwd and /etc/shadow
+echo $SHAD >> /etc/shadow
+echo $PASS >> /etc/passwd
+fi
+
+if [ $? == 0 ]
+then
+echo "no update needed to passwd or shadow"
+fi
+
+grep broot /etc/group > /dev/null
+if [ $? -ne 0 ]
+then
+echo "update needed for /etc/group"
+echo $GRP >> /etc/group
+fi
+
+if [ $? == 0 ]
+then
+echo "no update to /etc/group needed"
+fi
